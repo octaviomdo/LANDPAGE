@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Política de Privacidade — Credimore Group</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0d0f14;
+      --surface: #13161d;
+      --border: #1e2330;
+      --accent: #c9a84c;
+      --accent-soft: rgba(201,168,76,0.12);
+      --text: #e8e6e0;
+      --muted: #7a7d8a;
+      --heading-font: 'Playfair Display', serif;
+      --body-font: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body-font);
+      font-weight: 300;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* Noise overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* Header */
+    header {
+      position: relative;
+      padding: 80px 0 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #0a0c10 0%, var(--bg) 100%);
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .logo-area {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--heading-font);
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 18px;
+    }
+
+    .logo-name {
+      font-family: var(--heading-font);
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .page-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.15s ease forwards;
+    }
+
+    h1 {
+      font-family: var(--heading-font);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      color: #fff;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.25s ease forwards;
+    }
+
+    .subtitle {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 480px;
+      margin-inline: auto;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.35s ease forwards;
+    }
+
+    /* TOC */
+    .toc-wrapper {
+      max-width: 860px;
+      margin: 56px auto 0;
+      padding: 0 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.45s ease forwards;
+    }
+
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 8px 24px;
+    }
+
+    .toc-title {
+      grid-column: 1 / -1;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .toc a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+
+    .toc a::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+      transition: width 0.2s;
+    }
+
+    .toc a:hover { color: var(--accent); }
+    .toc a:hover::before { width: 24px; }
+
+    /* Main content */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-num {
+      font-family: var(--heading-font);
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      min-width: 28px;
+    }
+
+    h2 {
+      font-family: var(--heading-font);
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    p {
+      color: #c2c0ba;
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    /* Item cards */
+    .item-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .item-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .item-card:hover {
+      border-color: rgba(201,168,76,0.3);
+      background: #161920;
+    }
+
+    .item-card-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .item-card p {
+      font-size: 14px;
+      margin-bottom: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* Contact section */
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 36px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 400;
+      transition: all 0.2s;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .contact-icon {
+      width: 18px;
+      height: 18px;
+      opacity: 0.6;
+    }
+
+    .contact-link:hover .contact-icon { opacity: 1; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2e3344; }
+
+    @media (max-width: 600px) {
+      .contact-box { padding: 24px 20px; }
+      .toc { grid-template-columns: 1fr 1fr; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-area">
+    <div class="logo-mark">C</div>
+    <span class="logo-name">Credimore Group</span>
+  </div>
+  <div class="page-tag">Documento Legal</div>
+  <h1>Política de Privacidade</h1>
+  <p class="subtitle">Como coletamos, usamos e protegemos as suas informações pessoais.</p>
+
+  <nav class="toc-wrapper" aria-label="Índice">
+    <div class="toc">
+      <p class="toc-title">Conteúdo</p>
+      <a href="#s1">Coleta de Dados</a>
+      <a href="#s2">Uso dos Dados</a>
+      <a href="#s3">Compartilhamento</a>
+      <a href="#s4">Retenção de Dados</a>
+      <a href="#s5">Seus Direitos</a>
+      <a href="#s6">Segurança</a>
+      <a href="#s7">Alterações</a>
+      <a href="#s8">Contato</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <div class="section" id="intro">
+    <p>Esta Política de Privacidade descreve como a <strong style="color:#e8e6e0;font-weight:500">Credimore Group</strong> coleta, usa, armazena e compartilha as informações dos usuários que interagem com seus serviços, website e aplicativos (doravante "os Serviços"). Ao utilizar os Serviços da Credimore Group, você concorda com as práticas descritas nesta política.</p>
+  </div>
+
+  <div class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Coleta de Dados</h2>
+    </div>
+    <p>A Empresa coleta os seguintes tipos de dados:</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-card-title">Informações de Identificação Pessoal (PII)</div>
+        <p>Inclui, mas não se limita a, nome completo, CPF, RG, data de nascimento, endereço, telefone, e-mail, dados bancários e outras informações financeiras fornecidas voluntariamente durante o processo de solicitação de crédito, simulações ou contato.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Dados de Uso</div>
+        <p>Informações sobre como você interage com os Serviços, como páginas visitadas, tempo de navegação, recursos acessados, simulações realizadas e ações tomadas. Isso pode incluir dados de desempenho e diagnóstico.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Dados do Dispositivo</div>
+        <p>Informações sobre o dispositivo utilizado para acessar os Serviços, como modelo, sistema operacional, identificadores únicos de dispositivo e informações da rede.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Dados de Redes Sociais</div>
+        <p>Se você interagir com nossos Serviços através de plataformas de redes sociais (como Instagram), podemos coletar informações públicas do seu perfil, conforme permitido pelas configurações de privacidade dessas plataformas.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Uso dos Dados Coletados</h2>
+    </div>
+    <p>Os dados coletados são utilizados para as seguintes finalidades:</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-card-title">Fornecer e Gerenciar os Serviços</div>
+        <p>Para processar solicitações de crédito, realizar simulações, gerenciar contratos, fornecer suporte ao cliente e operar, manter e melhorar a qualidade dos Serviços.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Comunicação</div>
+        <p>Para enviar informações sobre o status da solicitação de crédito, ofertas, promoções, notícias, atualizações, informações de segurança e mensagens de suporte. Podemos utilizar e-mail, telefone, SMS e mensagens via aplicativos de comunicação.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Análise e Melhoria</div>
+        <p>Para entender como os usuários interagem com os Serviços, identificar tendências de mercado, depurar erros, desenvolver novos produtos e personalizar a experiência do usuário.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Marketing e Publicidade</div>
+        <p>Para apresentar anúncios e conteúdos personalizados, inclusive em plataformas de redes sociais, com base nos seus interesses e interações com os Serviços.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Segurança e Prevenção de Fraudes</div>
+        <p>Para proteger os Serviços e seus usuários contra fraudes, abusos, atividades ilegais e garantir a segurança das transações financeiras.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Conformidade Legal e Regulatória</div>
+        <p>Para cumprir com as leis e regulamentações aplicáveis ao setor de crédito e serviços financeiros.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Compartilhamento de Dados</h2>
+    </div>
+    <p>A Empresa pode compartilhar suas informações com terceiros nas seguintes circunstâncias:</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-card-title">Instituições Financeiras e Parceiros de Crédito</div>
+        <p>Para viabilizar a solicitação e concessão de crédito, seus dados podem ser compartilhados com bancos, financeiras e outras instituições parceiras.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Provedores de Serviços</div>
+        <p>Com empresas que prestam serviços em nosso nome, como hospedagem de dados, análise, suporte ao cliente, marketing e consultoria jurídica e contábil. Esses provedores são obrigados a proteger suas informações.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Plataformas de Redes Sociais</div>
+        <p>Para fins de publicidade e análise, podemos compartilhar dados anonimizados ou agregados com plataformas como o Meta (Facebook, Instagram).</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Conformidade Legal e Aplicação da Lei</div>
+        <p>Quando exigido por lei, ordem judicial ou solicitação de autoridades governamentais, ou para proteger nossos direitos, propriedade ou segurança.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Transferências de Negócios</div>
+        <p>Em conexão com uma fusão, aquisição ou venda de ativos, suas informações podem ser transferidas como parte dos ativos envolvidos.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Retenção de Dados</h2>
+    </div>
+    <p>Retemos os dados coletados pelo tempo necessário para cumprir as finalidades descritas nesta Política de Privacidade e para atender às obrigações legais e regulatórias, a menos que um período de retenção mais longo seja exigido ou permitido por lei.</p>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Seus Direitos e Escolhas</h2>
+    </div>
+    <p>Você tem certos direitos em relação aos seus dados pessoais, incluindo:</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-card-title">Acesso e Correção</div>
+        <p>Você pode solicitar acesso aos seus dados pessoais e solicitar correções de quaisquer imprecisões.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Exclusão de Dados</div>
+        <p>Você pode solicitar a exclusão de seus dados pessoais, sujeito às obrigações legais e regulatórias de retenção. Entre em contato conosco pelos canais indicados nesta política.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Revogação de Consentimento</div>
+        <p>Você pode revogar seu consentimento para o processamento de dados a qualquer momento, sem afetar a legalidade do processamento realizado anteriormente.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-card-title">Objeção e Restrição</div>
+        <p>Você pode se opor ao processamento de seus dados ou solicitar a restrição de seu processamento em determinadas circunstâncias.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Segurança dos Dados</h2>
+    </div>
+    <p>Implementamos medidas de segurança técnicas, administrativas e organizacionais razoáveis para proteger as informações coletadas contra acesso não autorizado, divulgação, alteração ou destruição. No entanto, nenhuma transmissão de dados pela internet ou sistema de armazenamento eletrônico é 100% seguro.</p>
+  </div>
+
+  <div class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Alterações a Esta Política</h2>
+    </div>
+    <p>Podemos atualizar esta Política de Privacidade periodicamente para refletir mudanças em nossas práticas de dados ou em requisitos legais. Notificaremos você sobre quaisquer alterações significativas publicando a nova política em nosso website ou através de outros meios de comunicação. Seu uso continuado dos Serviços após a publicação de alterações constitui sua aceitação da política revisada.</p>
+  </div>
+
+  <div class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Contato</h2>
+    </div>
+    <div class="contact-box">
+      <p style="margin-bottom:0">Se você tiver alguma dúvida sobre esta Política de Privacidade ou desejar exercer seus direitos, entre em contato conosco através dos canais abaixo:</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:oribeiro.adm@gmail.com">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>
+          </svg>
+          oribeiro.adm@gmail.com
+        </a>
+        <a class="contact-link" href="tel:+5511930180644">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/>
+          </svg>
+          (11) 93018-0644
+        </a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2025 Credimore Group · Todos os direitos reservados</p>
+</footer>
+
+<script>
+  // Intersection Observer para animação de entrada das seções
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
